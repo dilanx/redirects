@@ -16,9 +16,9 @@ log(`using configuration: ${cfg}`);
 
 const dst = process.env.INPUT_DESTINATION_DIRECTORY || 'build';
 
-log('using destination: ${dst}');
+log(`using destination: ${dst}`);
 
-const lines = cfg.toString().split('\n');
+const lines = fs.readFileSync(cfg).toString().split('\n');
 
 for (const line of lines) {
   const l = line.trim();
