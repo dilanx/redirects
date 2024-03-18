@@ -1,0 +1,25 @@
+{
+  "name": "generate-redirects",
+  "version": "1.0.0",
+  "description": "Generate static redirects",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dilanx/generate-redirects.git"
+  },
+  "author": "Dilan Nair (dilanxd.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dilanx/generate-redirects/issues"
+  },
+  "homepage": "https://github.com/dilanx/generate-redirects#readme",
+  "devDependencies": {
+    "@dilanx/config": "^2.0.1",
+    "prettier": "^3.2.5"
+  },
+  "prettier": "@dilanx/config/prettier"
+}

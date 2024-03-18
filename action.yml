@@ -1,0 +1,18 @@
+name: 'Generate static redirects'
+description: 'Generate static HTML files to handle redirects'
+author: 'dilanx'
+inputs:
+  redirect-configuration:
+    description: 'List of redirects'
+    required: false
+    default: 'redirects.txt'
+  destination-directory:
+    description: 'Output directory'
+    required: false
+    default: 'build'
+runs:
+  using: 'node20'
+  main: 'index.js'
+branding:
+  icon: 'globe'
+  color: 'green'
