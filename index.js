@@ -33,7 +33,7 @@ for (const line of lines) {
     path.join(redirectDir, 'index.html'),
     `<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\" /><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /><title>Redirecting...</title><script>window.location.replace(\`${to}\`);</script></head></html>`
   );
-  log(`redirecting ${from.length > 0 ? from.join('/') : '/'} to ${to}`);
+  log(`redirecting /${from.join('/')} to ${to}`);
 }
 
 log('done');
