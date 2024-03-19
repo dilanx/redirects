@@ -1,11 +1,12 @@
-import fs from 'fs';
-import path from 'path';
+const core = require('@actions/core');
+const fs = require('fs');
+const path = require('path');
 
 function log(msg) {
   console.log('generate-redirects:', msg);
 }
 
-const cfg = process.env.INPUT_REDIRECT_CONFIGURATION || 'redirects.txt';
+const cfg = core.getInput('redirect-configuration') || 'redirects.txt';
 
 if (!fs.existsSync(cfg)) {
   log(`configuration file not found: ${cfg}`);
@@ -14,7 +15,7 @@ if (!fs.existsSync(cfg)) {
 
 log(`using configuration: ${cfg}`);
 
-const dst = process.env.INPUT_DESTINATION_DIRECTORY || 'build';
+const dst = core.getInput('destination-directory') || 'build';
 
 log(`using destination: ${dst}`);
 
