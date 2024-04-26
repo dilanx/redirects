@@ -1,4 +1,5 @@
 const core = require('@actions/core');
+const yaml = requre('yaml');
 const fs = require('fs');
 const path = require('path');
 
@@ -6,7 +7,7 @@ function log(msg) {
   console.log('generate-redirects:', msg);
 }
 
-const cfg = core.getInput('redirect-configuration') || 'redirects.txt';
+const cfg = core.getInput('redirect-configuration') || 'redirects.yml';
 
 if (!fs.existsSync(cfg)) {
   log(`configuration file not found: ${cfg}`);
@@ -19,15 +20,10 @@ const dst = core.getInput('destination-directory') || 'build';
 
 log(`using destination: ${dst}`);
 
-const lines = fs.readFileSync(cfg).toString().split('\n');
+const config = yaml.parse(fs.readFileSync(cfg).toString());
 
-for (const line of lines) {
+for (const { from, to } of config.redirects) {
   const l = line.trim();
-  if (l.length === 0) continue;
-  if (l.startsWith('#')) continue;
-  const redirectLine = line.split(' ');
-  const from = redirectLine[0].split('/').filter((x) => x.length > 0);
-  const to = redirectLine[1];
   const redirectDir = path.join(dst, ...from);
   fs.mkdirSync(redirectDir, { recursive: true });
   fs.writeFileSync(
