@@ -4,7 +4,8 @@
   "description": "Generate static redirects",
   "main": "index.js",
   "scripts": {
-    "build": "ncc build index.js && cp dist/index.js release.js && rm -r dist"
+    "build": "ncc build index.js && cp dist/index.js release.js && rm -r dist",
+    "test": "node index.js"
   },
   "repository": {
     "type": "git",
