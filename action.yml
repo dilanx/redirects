@@ -5,7 +5,7 @@ inputs:
   redirect-configuration:
     description: 'List of redirects'
     required: false
-    default: 'redirects.txt'
+    default: 'redirects.yml'
   destination-directory:
     description: 'Output directory'
     required: false

@@ -17,6 +17,8 @@ A GitHub action to generate static HTML files to handle redirects.
 **Configuration**
 
 ```yml
+# https://github.com/dilanx/redirects
+
 redirects:
   - from: /old
     to: 'https://example.com/new'
