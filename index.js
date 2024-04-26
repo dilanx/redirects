@@ -23,7 +23,6 @@ log(`using destination: ${dst}`);
 const config = yaml.parse(fs.readFileSync(cfg).toString());
 
 for (const { from, to } of config.redirects) {
-  const l = line.trim();
   const redirectDir = path.join(dst, ...from);
   fs.mkdirSync(redirectDir, { recursive: true });
   fs.writeFileSync(
